@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Classwork</title>
+    <style type="text/css">
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="one" onclick="divide(this)">one</div> 
+    <script>
+        function divide (div) {
+            var divDiv = div.cloneNode(true);
+
+            divDiv.innerHTML = "two";
+            divDiv.id = "two";
+            div.insertAdjacentElement('afterEnd', divDiv);
+
+            divDiv.onclick = function () {
+                var div1 = divDiv.cloneNode(true);
+                div1.innerHTML = "two_first";
+                divDiv.innerHTML = "two_second";
+                div1.id = "two_first";
+                divDiv.id = "two_second";
+                divDiv.insertAdjacentElement('beforeBegin', div1);
+
+                div1.onclick = "";
+            }
+        }
+   
+
+    // Добавьте после дива с id=one еще один див с текстом two и id=two
+    // На клик по id=two добавьте перед ним див с id - two_first, а див с id=two измените на two_second 
+    </script>
+</body>
+</html>
